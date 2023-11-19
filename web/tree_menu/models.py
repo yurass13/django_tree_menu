@@ -12,7 +12,7 @@ class Menu(models.Model):
         title:str - for show in views.
     """
     name = models.SlugField(primary_key=True, max_length=120)
-    title = models.CharField(max_length=50)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
