@@ -1,0 +1,32 @@
+{% comment %}
+Require:
+    level       - level of recursion
+    menu_name   - ...
+    menu_items  - ...
+{% endcomment %}
+
+{% load tree_menu_tags %}
+
+{% if level == 0 %} <nav id={{menu_name}} > {% endif %}
+
+<ul class="{% if level == 0 %} topmenu {% else %} submenu {% endif %}">
+    {% for item in menu_items %}
+    <li>
+        <a href="{{item.url}}">
+            {{item.title}}
+
+            {% if item.menu_items.count > 0 %} 
+                <span class="fa fa-angle-down"></span> 
+            {% endif %}
+        </a>
+
+{% comment %} Recursion {% endcomment %}
+        {% if item.menu_items.count > 0 %}
+            {% draw_menu item.menu.name item.id level|add:1 %}
+        {% endif %}
+
+    </li>
+    {% endfor %}
+</ul>
+
+{% if level == 0 %} </nav> {% endif %}

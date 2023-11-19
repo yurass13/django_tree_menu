@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+def first_menu(request):
+    return render(
+        request,
+        "tree_menu/base.html",
+        {"menu_name": "first"}
+    )
+
+
