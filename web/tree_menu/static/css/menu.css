@@ -33,6 +33,7 @@ nav a {
   color: #FEFDFD;
   letter-spacing: 2px;
 }
+.topmenu > li > a:active,
 .topmenu > li > a.active, 
 .submenu a:hover {color: #ddbe86;}
 .topmenu .fa, 
