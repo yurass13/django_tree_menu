@@ -10,13 +10,14 @@ register = template.Library()
 # TODO (Future) check mptt
 # https://github.com/django-mptt/django-mptt
 @register.inclusion_tag('tree_menu/menu/menu.html')
-def draw_menu(menu_name: str): 
+def draw_menu(menu_name: str, request=None): 
     if menu_name is None:
         raise AttributeError("Undefined menu object!")
 
     menu_obj = get_object_or_404(Menu.objects.select_related(), name=menu_name)
 
-    return {'menu': menu_obj}
+    return {'menu': menu_obj,
+            'request': request}
 
 
 @register.filter

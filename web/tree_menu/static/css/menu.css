@@ -4,18 +4,18 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
-nav {background: #413F3C;}
-nav ul {
+#first {background: #413F3C;}
+#first ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-nav ul:after {
+#first ul:after {
   content: "";
   display: table;
   clear: both;
 }
-nav a {
+#first a {
   text-decoration: none;
   display: block;
   transition: .3s linear;
@@ -68,8 +68,24 @@ nav a {
   top: -1px;
   transition: .3s linear;
 }
-nav li:hover > .submenu {
+#first li:hover > .submenu {
   transform: rotateX(0deg);
   visibility: visible;
   opacity: 1;
+}
+
+#second {
+  width: 200px;
+  background: #413F3C;
+  position: absolute;
+  top: 58px;
+  right: 0;
+}
+
+#second ul{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

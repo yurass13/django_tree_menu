@@ -1,11 +1,12 @@
 {% comment %}
     Require:
         menu: Menu
+        request: Request - for sets active status
 {% endcomment %}
 
 {% regroup menu.menu_items.values by parent_id as menu_blocks %}
 
 <nav id={{menu.name}}>
-    {% include "tree_menu/menu/list.html" with items=menu_blocks parent=None %}
+    {% include "tree_menu/menu/list.html" with items=menu_blocks parent=None request=request %}
 </nav>
 

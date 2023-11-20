@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> {{menu_name}} </title>
+    <title> {{menu_name}} menu as context </title>
     <link href="{% static "css/menu.css" %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% comment %} <link href="{% static "js/main.js" %}" rel="script" > {% endcomment %}
 </head>
 <body>
+    {% draw_menu "first" request %}
     {% draw_menu menu_name %}
-
 </body>
 </html>

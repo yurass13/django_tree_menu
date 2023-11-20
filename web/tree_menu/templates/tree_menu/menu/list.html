@@ -9,7 +9,7 @@
 <ul class="{% if parent == None %} topmenu {% else %} submenu {% endif %}">
     {% for item in items|lookup_grouper:parent %}
         <li>
-            <a href="{{item.url}}">
+            <a href="{{item.url}}" {% if item.url == request.path %}class="active"{% endif %}>
                 {{item.title}}
                 {% if items|lookup_grouper:item.id != None %} 
                     <span class="fa fa-angle-down"></span> 
