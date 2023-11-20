@@ -1,0 +1,26 @@
+{% comment %}
+    Require:
+        parent: Optional[int]
+        items: Dict[int: List[MenuItems]]
+{% endcomment %}
+
+{% load tree_menu_tags %}
+
+<ul class="{% if parent == None %} topmenu {% else %} submenu {% endif %}">
+    {% for item in items|lookup_grouper:parent %}
+        <li>
+            <a href="{{item.url}}">
+                {{item.title}}
+                {% if items|lookup_grouper:item.id != None %} 
+                    <span class="fa fa-angle-down"></span> 
+                {% endif %}
+            </a>
+
+        {% comment %} Recursion {% endcomment %}
+            {% if items|lookup_grouper:item.id != None %}
+                {% include "tree_menu/menu/list.html" with parent=item.id items=items %}
+            {% endif %}
+
+        </li>
+    {% endfor %} 
+</ul>

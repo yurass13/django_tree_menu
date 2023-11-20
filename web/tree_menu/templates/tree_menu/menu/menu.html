@@ -1,0 +1,11 @@
+{% comment %}
+    Require:
+        menu: Menu
+{% endcomment %}
+
+{% regroup menu.menu_items.values by parent_id as menu_blocks %}
+
+<nav id={{menu.name}}>
+    {% include "tree_menu/menu/list.html" with items=menu_blocks parent=None %}
+</nav>
+
