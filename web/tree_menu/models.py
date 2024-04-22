@@ -22,7 +22,7 @@ class MenuItem(models.Model):
     # TODO Future $class and $id fields for css manage
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, related_name='menu_items')
     title = models.CharField(max_length=50)
-    url = models.CharField(max_length=255, null=True, blank=True, default='')
+    url = models.CharField(max_length=255, blank=True, default='')
     parent = models.ForeignKey('MenuItem',
                                on_delete=models.CASCADE,
                                null=True,

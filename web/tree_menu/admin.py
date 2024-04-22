@@ -27,7 +27,6 @@ class MenuItemInline(admin.TabularInline, CompositeMenuMixin):
     fields = ('title', 'url', 'view_total_items')
     readonly_fields = ('view_total_items', )
     ordering = ('-parent', )
-    # inlines = ('MenuItemInline', )
 
     @staticmethod
     def get_query_params(obj):
@@ -70,7 +69,7 @@ class MenuItemAdmin(admin.ModelAdmin, CompositeMenuMixin):
     @staticmethod
     def view_menu(obj):
         name = obj.menu.name
-        url = reverse(f"admin:tree_menu_menu_change", args=(name, ))
+        url = reverse("admin:tree_menu_menu_change", args=(name, ))
         return format_html('<a href="{}">{}</a>', url, name)
 
     view_menu.short_description = "Menu"
